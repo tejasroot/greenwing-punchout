@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="greenwing_customer" resource="default" engine="innodb" comment="Count Login Attempts">
+        <column xsi:type="varchar" name="id" nullable="false" length="32" comment="id"/>
+        <column xsi:type="int" name="user_id" nullable="false" comment="UserID"/>
+        <column xsi:type="text" name="Token_id"  nullable="false" identity="false" default=""
+                comment="TokenID"/>
+        <column xsi:type="text" name="Orignal_link" nullable="false" comment="Update Time"/>
+        <column xsi:type="int" name="STATUS" nullable="false" comment="Status"/>
+        <column xsi:type="text" name="BuyerCookie"  nullable="false" identity="false" default=""
+                comment="TokenID"/>
+        <column xsi:type="text" name="CustomerID"  nullable="false" identity="false" default=""
+                comment="TokenID"/>
+        <column xsi:type="text" name="ReturnURL"  nullable="false" identity="false" default=""
+                comment="TokenID"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="id"/>
+        </constraint>
+    </table>
+    <table name="greenwing_cart" resource="default" engine="innodb" comment="Count Login Attempts">
+        <column xsi:type="varchar" name="id" nullable="false" length="32" comment="id"/>
+        <column xsi:type="int" name="customerid" nullable="false" comment="customerid"/>
+        <column xsi:type="varchar" name="email"  nullable="false" identity="false" default=""
+                comment="email"/>
+        <column xsi:type="text" name="item_sku" nullable="false" comment="item_sku"/>
+        <column xsi:type="int" name="qty" nullable="false" comment="qty"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="id"/>
+        </constraint>
+    </table>
+</schema>

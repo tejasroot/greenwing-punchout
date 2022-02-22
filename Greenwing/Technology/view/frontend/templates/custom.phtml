@@ -1,0 +1,55 @@
+<?php
+$quote = $block->getCartData();
+$request = json_decode($quote);
+$postData = json_encode($request->request);
+$values = $request->debugEnable;
+
+if ($values == 0) {
+    ?>
+<body onload="document.forms['frm-cartdata'].submit()">
+    <?php
+} else {
+    ?>
+<body>
+    <?php
+}
+?>
+        <h2><?= $block->escapeHtmlAttr(__('Returning Cart to your Procurement system.')) ?></h2>
+
+        <form action="<?= /* @noEscape */ $request->ReturnURL; ?>" method="post" name="frm-cartdata" id="frm-cartdata">
+            <div class="fieldset">
+                <div class="cart-text-align">
+                <?php
+                if ($values == 1) {
+                    ?>    
+                    <div>
+                        <label for="email_address" class="required">
+                            <em>*</em><?= $block->escapeHtmlAttr(__('Cart Data')) ?>
+                        </label>
+                    </div>
+                    <div class="input-box">
+                        <textarea name="cartdata" rows=20 cols=200>
+                            <?= /* @noEscape */  $postData ?>
+                        </textarea>
+                    </div>
+                    <div class="input-box">
+                        <input type="submit" name="submit" value="Submit">
+                    </div>
+
+                    <?php
+                } else {
+                    ?>
+                     <textarea name="cartdata" rows=20 cols=200 style="display:none;">
+                            <?= /* @noEscape */  $postData ?>
+                        </textarea>
+                    <?php
+                }
+                ?>
+
+                </div>
+            </div>
+        </form>
+
+</body>
+
+
