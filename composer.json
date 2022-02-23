@@ -1,8 +1,21 @@
 {
-    "name": "rootinfo/technology",
+    "name": "greenwing/punchout",
     "description": "Greenwing Technology Punchout Integration",
-    "type": "project",
+    "type": "magento2-module",
     "version": "1.3.0",
-    "license": "GPL",
+    "license": [
+        "OSL-3.0",
+        "AFL-3.0"
+    ],
+    "require": {
+        "php": "~7.0.13||~7.1.0||~7.2.0||~7.3.0||~7.4.0"
+    },
+    "autoload": {
+        "files": [ "registration.php" ],
+        "psr-4": {
+            "Greenwing\\Punchout\\": ""
+        }
+    },
     "minimum-stability": "stable"
+
 }
